@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+
+    image: mvnaip
+    container_name: mvnaip_app
+    env_file: .env
+
+    # Run your main script
+    command: ["python", "src/main.py"]
+
+    # Mount source files and logs
+    volumes:
+      - ./src:/app/src
+      - ./src/logs:/app/src/logs
