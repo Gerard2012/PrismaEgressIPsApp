@@ -8,7 +8,7 @@ A small Flask web application (Dockerized) that retrieves Prisma Access **Egress
 
 - Fetches Prisma Access Egress IPs from the Prisma API (per tenant)
 - Presents data in a web table (Zone + Address Details)
-- **Region dropdown**: `global` / `china`
+- **Tenant dropdown**: `global` / `china`
 - **Refresh button**: re-fetches latest data from the API (no restart required)
 - Client-side **filtering** (quick search across visible rows)
 - **Spinner** loading indicator while fetching/rendering
