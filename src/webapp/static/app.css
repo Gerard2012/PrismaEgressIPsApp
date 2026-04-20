@@ -1,0 +1,65 @@
+/* Container scrolls, not the whole page */
+.table-container {
+  max-height: 70vh;          /* adjust: e.g. 400px, 60vh, etc. */
+  overflow-y: auto;
+  overflow-x: auto;          /* helpful if columns get wide */
+  border: 1px solid #ddd;
+}
+
+/* Make table use full width and avoid weird layout jumps */
+.egress-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;       /* prevents columns jumping; optional */
+}
+
+/* Basic cell styling */
+.egress-table th,
+.egress-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  white-space: nowrap;       /* or remove if you want wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis;   /* nice truncation for long node_names */
+}
+
+/* Frozen headers */
+.egress-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;                /* keep header above body cells */
+  background: #f7f7f7;       /* important: otherwise cells show through */
+}
+
+/* zebra striping for readability */
+.egress-table tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+/* Loading indicator */
+.hidden {
+  display: none !important;
+}
+
+/* Simple spinner */
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-left: 10px;
+  border: 3px solid #ddd;
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* make the refresh button look disabled */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

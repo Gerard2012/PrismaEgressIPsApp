@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prisma Egress IPs</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+</head>
+<body>
+
+<h2>Prisma Egress IPs</h2>
+
+<input type="text" id="filterInput" placeholder="Filter..." />
+
+<button id="refreshBtn" onclick="refreshData()">Refresh</button>
+
+<label for="regionSelect">Tenant:</label>
+<select id="regionSelect" onchange="refreshData()">
+  <option value="global" selected>Global</option>
+  <option value="china">China</option>
+</select>
+
+<!-- ✅ Loading indicator -->
+<span id="loading" class="spinner hidden" aria-label="Loading"></span>
+<span id="loadingText" class="hidden">Loading…</span>
+
+<div class="table-container">
+ <table class="egress-table" border="1">
+   <thead>
+     <tr>
+       <th>Zone</th>
+       <th>Service Type</th>
+       <th>Node Name</th>
+       <th>Address</th>
+     </tr>
+   </thead>
+   <tbody id="egressTable"></tbody>
+ </table>
+</div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+
+</body>
+</html>

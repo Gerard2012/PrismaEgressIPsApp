@@ -6,12 +6,15 @@ services:
         UID: ${UID:-1000}
         GID: ${GID:-1000}
 
-    image: mvnaip
-    container_name: mvnaip_app
+    image: egress-ips-app:latest
+    container_name: egress-ips-app
     env_file: .env
 
     # Run your main script
-    command: ["python", "src/main.py"]
+    command: ["python", "src/webapp/app.py"]
+    
+    ports:
+      - "5000:5000"
 
     # Mount source files and logs
     volumes:

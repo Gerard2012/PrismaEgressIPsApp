@@ -5,7 +5,8 @@ FROM python:3.12-slim
 ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PIP_NO_CACHE_DIR=1
+    PIP_NO_CACHE_DIR=1 \
+    PYTHONPATH=/app
 
 # Build arguments to align container user with host user
 ARG UID=1000
@@ -38,6 +39,8 @@ RUN chown -R appuser:appgroup /app
 
 # Switch to non-root user
 USER appuser
+
+EXPOSE 5000
 
 # Default command — can be overridden in docker-compose
 CMD ["python", "src/main.py"]
