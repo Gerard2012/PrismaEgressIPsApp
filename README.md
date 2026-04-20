@@ -61,10 +61,12 @@ GID=<GID of user to be used>
 KEYVAULT_URL=https://<your-kv-name>.vault.azure.net/
 
 # Global (ROW) Prisma config
+PRISMA_ROW_TENANT_TSG_ID=<TSG_ID>
 PRISMA_ROW_EGRESS_IP_URL=https://api.prod6.datapath.prismaaccess.com/getPrismaAccessIP/v2
 PRISMA_ROW_EGRESS_IP_API_KEY=<prisma-api-key-secret-name-in-keyvault>
 
 # China Prisma config
+PRISMA_CN_TENANT_TSG_ID=<TSG_ID>
 PRISMA_CN_EGRESS_IP_URL=https://api.prod.datapath.prismaaccess.cn/getPrismaAccessIP/v2
 PRISMA_CN_EGRESS_IP_API_KEY=<prisma-api-key-secret-name-in-keyvault>
 ```
